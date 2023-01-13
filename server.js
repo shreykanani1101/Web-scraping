@@ -80,13 +80,13 @@ server.listen(port, hostname, () => {
                   }
                 });
               } else {
-                console.log("No New Notices✅");
+                //console.log("No New Notices✅");
               }
             });
           }
         }
       );
-    }, 1000 * 10);
+    }, 1000 * 10 * 60);
   }
   
 
@@ -149,12 +149,12 @@ server.listen(port, hostname, () => {
                   }
                 });
               } else {
-                console.log("No New Circular✅");
+                //console.log("No New Circular✅");
               }
             });
           }
         }
       );
-    }, 1000 * 10);
+    }, 1000 * 10 * 60);
   }
 });
