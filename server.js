@@ -24,7 +24,7 @@ server.listen(port, hostname, () => {
 
   setTimeout(() => {
     notice();
-  }, 1000 * 5);
+  }, 1000 * 5); 
 
   function notice() {
     setInterval(() => {
