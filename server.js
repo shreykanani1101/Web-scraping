@@ -24,7 +24,7 @@ server.listen(port, hostname, () => {
 
   setTimeout(() => {
     notice();
-  }, 1000 * 5); 
+  }, 1000 * 5 * 60); 
 
   function notice() {
     setInterval(() => {
@@ -92,7 +92,7 @@ server.listen(port, hostname, () => {
 
   setTimeout(() => {
     circular();
-  }, 1000 * 10);
+  }, 1000 * 10 * 60);
 
   function circular() {
     setInterval(() => {
