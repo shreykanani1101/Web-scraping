@@ -9,7 +9,8 @@ const nodemailer = require("nodemailer");
 
 const Sequelize = require("sequelize");
 
-const path = "mysql://root:admin@localhost:3306/ugc-notice-circular";
+// const path = "mysql://root:admin@localhost:3306/ugc-notice-circular";
+const path = "mysql://sql12591424:3UuxCBprWY@sql12.freesqldatabase.com:3306/sql12591424";
 
 const urls = [
   "https://www.ugc.ac.in/ugc_notices.aspx",
@@ -36,7 +37,7 @@ server.listen(port, hostname,()=>{
 
   setInterval(() => {
     urls.forEach((url, i) => {
-      console.log(url,i);
+      // console.log(url,i);
       request(url, async (err, response, html) => {
         if (!err && response.statusCode == 200) {
           const $ = cheerio.load(html);
@@ -97,13 +98,13 @@ server.listen(port, hostname,()=>{
             var transporter = nodemailer.createTransport({
               service: "gmail",
               auth: {
-                user: "shrey.kanani@darshan.ac.in",
-                pass: "Darshan@spk1101",
+                user: "ugcnotify@gmail.com",
+                pass: "mgzprkbyjborrhmd",
               },
             });
   
             var mailOptions = {
-              from: "shrey.kanani@darshan.ac.in",
+              from: "ugcnotify@gmail.com",
               to: "shreykanani5505@gmail.com",
               subject: `⚠️UPDATE! New UGC ${i == 0 ? "Notice" : "Circular"}!`,
               html: `<h3>UPDATE! UGC  ${
