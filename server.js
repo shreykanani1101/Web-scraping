@@ -64,7 +64,7 @@ server.listen(port, hostname,()=>{
                     { html:stripped },
                     { where: { id: 1 } }
                   );
-                  // sendEmail();
+                  sendEmail();
                 }
               })
               .finally(() => {
@@ -85,7 +85,7 @@ server.listen(port, hostname,()=>{
                     { html:stripped },
                     { where: { id: 2 } }
                   );
-                  // sendEmail();
+                  sendEmail();
                 }
               })
               .finally(() => {
