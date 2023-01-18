@@ -16,11 +16,8 @@ const nodemailer = require("nodemailer");
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/plain");
-  res.end("running");
-});
 
-server.listen(port, hostname, () => {
-  console.log(`Server running`);
+  console.log("server running");
 
   setTimeout(() => {
     notice();
@@ -157,4 +154,7 @@ server.listen(port, hostname, () => {
       );
     }, 1000 * 10 * 60);
   }
+  res.end("running");
 });
+
+server.listen(port, hostname);
