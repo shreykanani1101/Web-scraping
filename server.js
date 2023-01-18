@@ -19,9 +19,11 @@ const urls = [
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/plain");
+  res.end("Running");
+});
 
-  // console.log("server running");
-
+server.listen(port, hostname,()=>{
+  console.log("server running");
   const sequelize = new Sequelize(path, {
     operatorsAliases: false,
     logging: false,
@@ -34,7 +36,7 @@ const server = http.createServer((req, res) => {
 
   setInterval(() => {
     urls.forEach((url, i) => {
-      // console.log(url,i);
+      console.log(url,i);
       request(url, async (err, response, html) => {
         if (!err && response.statusCode == 200) {
           const $ = cheerio.load(html);
@@ -62,12 +64,11 @@ const server = http.createServer((req, res) => {
                     { html:stripped },
                     { where: { id: 1 } }
                   );
-                  sendEmail();
+                  // sendEmail();
                 }
               })
               .finally(() => {
                 // sequelize.close();
-                res.end("Running");
               });
           } else {
             Record
@@ -84,12 +85,11 @@ const server = http.createServer((req, res) => {
                     { html:stripped },
                     { where: { id: 2 } }
                   );
-                  sendEmail();
+                  // sendEmail();
                 }
               })
               .finally(() => {
                 // sequelize.close();
-                res.end("Running");
               });
           }
 
@@ -122,8 +122,6 @@ const server = http.createServer((req, res) => {
         }
       });
     });
-  }, 1000 * 10 * 60);
+  }, 1000 * 10 );
 });
-
-server.listen(port, hostname);
 
