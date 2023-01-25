@@ -105,7 +105,7 @@ server.listen(port, hostname,()=>{
   
             var mailOptions = {
               from: "ugcnotify@gmail.com",
-              to: ["shrey.kanani@darshan.ac.in","jay.dhamsaniya@darshan.ac.in"],
+              to: "shrey.kanani@darshan.ac.in",
               subject: `⚠️UPDATE! New UGC ${i == 0 ? "Notice" : "Circular"}!`,
               html: `<h3>UPDATE! UGC  ${
                 i == 0 ? "Notice" : "Circular"
