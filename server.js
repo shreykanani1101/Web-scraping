@@ -48,6 +48,18 @@ server.listen(port, hostname,()=>{
             .html()
             .replace(/\s+/g, " ")
             .trim();
+
+          const url =  $("#ctl00_bps_homeCPH_rptState")
+          .children()
+          .children()
+          .first()
+          .children()
+          .last()
+          .children('div')
+          .children('a')
+          .attr().href.split(` '`)[1]
+          .split(`','_blank'`)[0];
+          
             
           if (i == 0) {
             Record
@@ -105,11 +117,11 @@ server.listen(port, hostname,()=>{
   
             var mailOptions = {
               from: "ugcnotify@gmail.com",
-              to: "shreykanani5505@gmail.com",
+              to: ["shrey.kanani@darshan.ac.in","jay.dhamsaniya@darshan.ac.in"],
               subject: `⚠️UPDATE! New UGC ${i == 0 ? "Notice" : "Circular"}!`,
               html: `<h3>UPDATE! UGC  ${
                 i == 0 ? "Notice" : "Circular"
-              }</h3><table><tr>${stripped}</tr></table>`,
+              }</h3><p>${stripped}</p><p><a href='${url}'>Click Here to Open</a></p>`,
             };
   
             transporter.sendMail(mailOptions, function (error, info) {
@@ -123,6 +135,6 @@ server.listen(port, hostname,()=>{
         }
       });
     });
-  }, 1000 * 10 );
+  }, 1000 * 10 * 30);
 });
 
